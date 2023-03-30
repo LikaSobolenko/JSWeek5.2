@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function formatDate(date) {
+            let different = Math.round((new Date() - date) / 1000);
+
+            console.log(different);
+            year = String(date.getFullYear()).slice(-2);
+            console.log(year);
+            month = date.getMonth() + 1;
+            if (month < 10) {
+                month = `0${month}`;
+            };
+            (different <= 1) ? console.log('Прямо сейчас'):
+                (different <= 59) ? console.log(`${different} сек. прошло`) :
+                (different < 60 * 60) ? console.log(`${Math.round(different/60)} мин. прошло`) :
+                console.log(
+                    `${date.getDate()}.${month}.${String(date.getFullYear()).slice(-2)} ${date.getHours()}:${date.getMinutes()}`
+                )
+
+        }
+        formatDate(new Date(2023, 2, 30, 17, 52));
+    </script>
+
+</body>
+
+</html>
